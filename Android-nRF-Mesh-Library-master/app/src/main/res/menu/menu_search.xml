@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FireActivity">>
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:title="Search" />
+
+    <item
+        android:id="@+id/action_group"
+        android:icon="@drawable/ic_group"
+        android:title="Group" />
+
+    <!--<item
+        android:id="@+id/action_qrcode"
+        android:icon="@drawable/ic_qrcode"
+        android:title="QRcode"/>-->
+
+    <item
+        android:id="@+id/action_set"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
+
+</menu>

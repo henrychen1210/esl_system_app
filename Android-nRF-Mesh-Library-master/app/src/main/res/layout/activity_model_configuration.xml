@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2018, Nordic Semiconductor
+  ~ All rights reserved.
+  ~
+  ~ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+  ~
+  ~ 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+  ~
+  ~ 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the
+  ~ documentation and/or other materials provided with the distribution.
+  ~
+  ~ 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this
+  ~ software without specific prior written permission.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+  ~ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+  ~ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".node.BaseModelConfigurationActivity"
+    tools:ignore="ContentDescription">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                <ProgressBar
+                    android:id="@+id/configuration_progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginBottom="-7dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/white"
+                    android:visibility="invisible"
+                    tools:ignore="UnusedAttribute" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/epaper"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="h,5:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="王小明"
+                android:textColor="@color/black"
+                android:textSize="@dimen/epaper_name"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.20" />
+
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="男"
+                android:textColor="@color/black"
+                android:textSize="@dimen/epaper_gender"
+                app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                app:layout_constraintHorizontal_bias="0.707"
+                app:layout_constraintStart_toEndOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout" />
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="急診"
+                android:textColor="@color/black"
+                android:textSize="@dimen/epaper_detail"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.39" />
+
+            <TextView
+                android:id="@+id/uid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123456789"
+                android:textColor="@color/black"
+                android:textSize="@dimen/epaper_detail"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.45999998" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020-09-09"
+                android:textColor="@color/black"
+                android:textSize="@dimen/epaper_detail"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.52" />
+
+            <TextView
+                android:id="@+id/order1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="國"
+                android:textColor="@color/white"
+                android:textSize="@dimen/epaper_order"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.625" />
+
+            <TextView
+                android:id="@+id/order2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="國"
+                android:textColor="@color/white"
+                android:textSize="@dimen/epaper_order"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/order1"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.79" />
+
+            <TextView
+                android:id="@+id/order3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="國"
+                android:textColor="@color/white"
+                android:textSize="@dimen/epaper_order"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/order1"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.97" />
+
+            <TextView
+                android:id="@+id/roomnumber"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="A111"
+                android:textColor="@color/white"
+                android:textSize="@dimen/epaper_roomnumber"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_layout"
+                app:layout_constraintVertical_bias="0.00999999" />
+
+            <TextView
+                android:id="@+id/main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="王小明"
+                android:textColor="@color/white"
+                android:textSize="@dimen/epaper_medical"
+                app:layout_constraintBottom_toBottomOf="@+id/order1"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.13"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toTopOf="@+id/order1"
+                app:layout_constraintVertical_bias="0.77" />
+
+            <TextView
+                android:id="@+id/resident"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="王小明"
+                android:textColor="@color/white"
+                android:textSize="@dimen/epaper_medical"
+                app:layout_constraintBottom_toBottomOf="@+id/order2"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.13"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toTopOf="@+id/order2"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/nurse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="王小明"
+                android:textColor="@color/white"
+                android:textSize="@dimen/epaper_medical"
+                app:layout_constraintBottom_toBottomOf="@+id/order3"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.13"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toTopOf="@+id/order3"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.13" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.025" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.76" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="1.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.59" />
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/zero"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/build"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="姓名"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_patientroom" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="性別"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_patientroom" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="科室"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_patiennumber"
+                            app:layout_constraintTop_toBottomOf="@+id/set_name" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="病例號"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_uid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_date"
+                            app:layout_constraintTop_toBottomOf="@+id/set_patientroom" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="入院日期"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_order1"
+                            app:layout_constraintTop_toBottomOf="@id/set_patiennumber" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="注意事項1"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_order1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_order2"
+                            app:layout_constraintTop_toBottomOf="@+id/set_date" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="注意事項2"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_order2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_order3"
+                            app:layout_constraintTop_toBottomOf="@+id/set_order1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="注意事項3"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_order3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_main"
+                            app:layout_constraintTop_toBottomOf="@+id/set_order2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="主治醫生"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_resident"
+                            app:layout_constraintTop_toBottomOf="@+id/set_order3" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="住院醫生"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_resident"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/set_nurse"
+                            app:layout_constraintTop_toBottomOf="@+id/set_main" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:text="護理師"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/set_nurse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/set_resident" />
+                    </LinearLayout>
+
+                    </LinearLayout>
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:paddingBottom="@dimen/activity_vertical_margin"
+                        app:layout_constraintTop_toBottomOf="@id/set_nurse">
+
+                        <LinearLayout
+                            android:id="@+id/engineer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/activity_vertical_margin">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/app_key_card"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                                app:cardElevation="1dp">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <com.google.android.material.appbar.MaterialToolbar
+                                        android:id="@+id/app_key_tool_bar"
+                                        android:layout_width="0dp"
+                                        android:layout_height="?actionBarSize"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:logo="@drawable/ic_folder_key_24dp"
+                                        app:title="@string/title_bound_app_keys"
+                                        app:titleMarginStart="@dimen/toolbar_title_margin"
+                                        app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/container_app_key_bind"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="?selectableItemBackground"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/app_key_tool_bar">
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/bound_keys"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:paddingStart="@dimen/activity_horizontal_margin"
+                                            android:paddingTop="@dimen/item_padding_top"
+                                            android:paddingEnd="@dimen/activity_horizontal_margin"
+                                            android:paddingBottom="@dimen/item_padding_bottom"
+                                            android:text="@string/no_app_keys_bound"
+                                            android:textColor="?android:textColorPrimary"
+                                            android:textSize="14sp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <androidx.recyclerview.widget.RecyclerView
+                                            android:id="@+id/recycler_view_bound_keys"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:clipToPadding="false"
+                                            android:overScrollMode="never"
+                                            android:scrollbars="none"
+                                            android:visibility="gone"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:listitem="@layout/removable_row_item"
+                                            tools:visibility="visible" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                    <include
+                                        android:id="@+id/div1"
+                                        layout="@layout/layout_divider"
+                                        android:layout_width="0dp"
+                                        android:layout_height="1dp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/container_app_key_bind" />
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:id="@+id/unbind_hint"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/item_padding_end"
+                                        android:padding="@dimen/activity_horizontal_margin"
+                                        android:text="@string/hint_unbind"
+                                        android:textColor="?android:textColorSecondary"
+                                        android:visibility="invisible"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/div1"
+                                        tools:visibility="visible" />
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/action_bind_app_key"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/item_padding_end"
+                                        android:layout_marginEnd="@dimen/item_padding_start"
+                                        android:padding="@dimen/item_padding_end"
+                                        android:text="@string/action_bind_app_key"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/div1" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/publish_address_card"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                                app:cardElevation="1dp">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="?selectableItemBackground">
+
+                                    <com.google.android.material.appbar.MaterialToolbar
+                                        android:id="@+id/publish_address_tool_bar"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="?actionBarSize"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:logo="@drawable/ic_publish"
+                                        app:title="@string/title_publish_address_configuration"
+                                        app:titleMarginStart="@dimen/toolbar_title_margin"
+                                        app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/container_publish_address"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:background="?selectableItemBackground"
+                                        android:paddingStart="@dimen/activity_horizontal_margin"
+                                        android:paddingTop="@dimen/item_padding_top"
+                                        android:paddingEnd="@dimen/activity_horizontal_margin"
+                                        android:paddingBottom="@dimen/item_padding_bottom"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/publish_address_tool_bar">
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/publish_address_title"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:paddingStart="@dimen/activity_horizontal_margin"
+                                            android:paddingEnd="@dimen/activity_horizontal_margin"
+                                            android:text="@string/title_publish_address"
+                                            android:textColor="?android:textColorPrimary"
+                                            android:textSize="16sp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toEndOf="@id/image_pub_address"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/publish_address"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:paddingStart="@dimen/activity_horizontal_margin"
+                                            android:text="None"
+                                            android:textColor="?android:textColorSecondary"
+                                            android:textSize="12sp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toEndOf="@id/image_pub_address"
+                                            app:layout_constraintTop_toBottomOf="@id/publish_address_title"
+                                            tools:ignore="HardcodedText,RtlSymmetry" />
+
+                                        <ImageView
+                                            android:id="@+id/image_pub_address"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            app:layout_constraintBottom_toBottomOf="@+id/publish_address"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="@+id/publish_address_title"
+                                            app:srcCompat="@drawable/ic_lan_24dp" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                    <include
+                                        android:id="@+id/div2"
+                                        layout="@layout/layout_divider"
+                                        android:layout_width="0dp"
+                                        android:layout_height="1dp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/container_publish_address" />
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/action_set_publication"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/item_padding_end"
+                                        android:layout_marginEnd="@dimen/item_padding_start"
+                                        android:padding="@dimen/item_padding_end"
+                                        android:text="@string/action_set_publish_address"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/div2" />
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/action_clear_publication"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/item_padding_end"
+                                        android:layout_marginEnd="@dimen/item_padding_start"
+                                        android:padding="@dimen/item_padding_end"
+                                        android:text="@string/action_clear"
+                                        android:visibility="gone"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toStartOf="@id/action_set_publication"
+                                        app:layout_constraintTop_toBottomOf="@id/div2"
+                                        tools:visibility="visible" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/subscription_address_card"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                                app:cardElevation="1dp">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="?selectableItemBackground">
+
+                                    <com.google.android.material.appbar.MaterialToolbar
+                                        android:id="@+id/subscribe_address_tool_bar"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="?actionBarSize"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:logo="@drawable/ic_subscribe"
+                                        app:title="@string/title_subscription_addresses_configuration"
+                                        app:titleMarginStart="@dimen/toolbar_title_margin"
+                                        app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/container_subscribe_address"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="?selectableItemBackground"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/subscribe_address_tool_bar">
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/subscribe_addresses"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:paddingStart="@dimen/activity_horizontal_margin"
+                                            android:paddingTop="@dimen/item_padding_top"
+                                            android:paddingEnd="@dimen/activity_horizontal_margin"
+                                            android:paddingBottom="@dimen/item_padding_bottom"
+                                            android:text="@string/not_subscribed_to_groups"
+                                            android:textColor="?android:textColorPrimary"
+                                            android:textSize="14sp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <androidx.recyclerview.widget.RecyclerView
+                                            android:id="@+id/recycler_view_addresses"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:clipToPadding="false"
+                                            android:scrollbars="none"
+                                            android:visibility="gone"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                    <include
+                                        android:id="@+id/div3"
+                                        layout="@layout/layout_divider"
+                                        android:layout_width="0dp"
+                                        android:layout_height="1dp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/container_subscribe_address" />
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:id="@+id/subscribe_hint"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/item_padding_end"
+                                        android:padding="@dimen/activity_horizontal_margin"
+                                        android:text="@string/hint_unsubscribe"
+                                        android:textColor="?android:textColorSecondary"
+                                        android:visibility="invisible"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/div3"
+                                        tools:visibility="visible" />
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/action_subscribe_address"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/item_padding_end"
+                                        android:layout_marginEnd="@dimen/item_padding_start"
+                                        android:padding="@dimen/item_padding_end"
+                                        android:text="@string/action_subscribe_address"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/div3" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/node_controls_container"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                                android:clipToPadding="false" />
+                            <TextView
+                                android:id="@+id/address"
+                                android:text="@string/address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UpDate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear"
+                android:textColor="@color/red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/btn_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="set background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/zero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/yaa"
+                android:layout_width="220dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_update"
+                app:layout_constraintDimensionRatio="h,5:3"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/iqrcode"
+                android:layout_width="80dp"
+                android:layout_height="69dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/main"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/roomnumber"
+                app:layout_constraintVertical_bias="0.55"
+                app:srcCompat="@drawable/white_back" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

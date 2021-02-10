@@ -1,0 +1,40 @@
+ {
+  "project_info": {
+    "project_number": "318616517131",
+    "firebase_url": "https://fjuee-40b0f.firebaseio.com",
+    "project_id": "fjuee-40b0f",
+    "storage_bucket": "fjuee-40b0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318616517131:android:105fb3602e90d30f1ca50e",
+        "android_client_info": {
+          "package_name": "no.nordicsemi.android.nrfmeshprovisioner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318616517131-gq71eo41587nb0hl68sh087njiba3rp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLxxNvD73CyHKoiz2tYGQw7au17D24tkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318616517131-gq71eo41587nb0hl68sh087njiba3rp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
