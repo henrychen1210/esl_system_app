@@ -1,4 +1,4 @@
-# 2020_BLE_mesh
+# BLE Mesh Project
 
 ## Introduction
 
@@ -9,3 +9,4 @@ Link : https://www.youtube.com/watch?v=gmbtoJ2xAnI&feature=youtu.be
 
 
 Thanks!
+2020
