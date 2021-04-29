@@ -6,7 +6,3 @@ This is an Android app for building and managing hospital ESL network through BL
 
 ## Demo Video
 Link : https://www.youtube.com/watch?v=gmbtoJ2xAnI&feature=youtu.be
-
-
-Thanks!
-2020
