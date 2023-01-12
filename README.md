@@ -1,4 +1,4 @@
-# BLE Mesh Project
+# Hospital Electronic Shelf Label (ESL) System Implemented by Bluetooth Mesh Network
 
 ## Introduction
 
