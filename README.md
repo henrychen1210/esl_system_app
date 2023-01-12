@@ -2,7 +2,7 @@
 
 ## Introduction
 
-<img decoding="async" src="https://pda.104.com.tw/profile/images/achievement_img1?vno=761i2q5zd" width="50%">
+<img decoding="async" src="https://imgur.com/undefined" width="50%">
 
 This is an Android app for building and managing hospital ESL network through BLE mesh. It also has real-time cloud sync function.
 
