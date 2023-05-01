@@ -1,4 +1,4 @@
-# Hospital Electronic Shelf Label (ESL) System Implemented by Bluetooth Mesh Network
+# Hospital Electronic Shelf Label (ESL) System Implemented by Bluetooth Mesh Network - APP
 
 ## Introduction
 
