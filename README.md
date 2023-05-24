@@ -12,11 +12,11 @@ Link : https://www.youtube.com/watch?v=gmbtoJ2xAnI&feature=youtu.be
 
 ### ESL
 <p align="center">
-<img decoding="async" src="https://i.imgur.com/2hsLw5A.jpg" width="50%" float:left>
+<img decoding="async" src="https://i.imgur.com/2hsLw5A.jpg" width="50%">
 </p>
 
 ### APP
 <p align="center">
-<img decoding="async" src="https://i.imgur.com/XduIXmm.jpg" width="30%" float:>
+<img decoding="async" src="https://i.imgur.com/XduIXmm.jpg" width="30%">
 </p>
 
