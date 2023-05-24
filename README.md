@@ -11,8 +11,12 @@ https://drive.google.com/file/d/1O6Cv4JMtBnNXUrlWJ6qWB74v8XMvR91L/view?usp=shari
 Link : https://www.youtube.com/watch?v=gmbtoJ2xAnI&feature=youtu.be
 
 ### ESL
+<p align="center">
 <img decoding="async" src="https://i.imgur.com/2hsLw5A.jpg" width="50%" float:left>
+</P
 
 ### APP
+<p align="center">
 <img decoding="async" src="https://i.imgur.com/XduIXmm.jpg" width="30%" float:>
+</p>
 
